@@ -17,7 +17,6 @@ function AboutUsPage() {
       <KnowPage />
       <FeaturedService />
       <Footer/>
-      
     </div>
   )
 }
