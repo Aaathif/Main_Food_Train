@@ -13,7 +13,7 @@ const Banner = () => {
       <div className="banner-text">
         <h1>FAST FOOD WITH </h1>
         <h1>FAST DELIVERY</h1>
-        <p>Buy any food using coupons code when doing </p>
+        <p>Buy any food using coupons code when Doing </p>
         <p>online shopping</p>
         <Link to="/product">
           <button>Order Now!  </button>{/* <button style={buttonStyle}>Order Now!</button> */}
