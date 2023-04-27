@@ -11,6 +11,8 @@ import SingleProductPage from './screen/SingleProductPage';
 import EventPage from './screen/EventPage';
 import LoginPage from './screen/LoginPage';
 import RegisterPage from './screen/RegisterPage';
+import SalaryPage from './screen/SalaryPage';
+import Employee from './screen/Employee';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
             <Route path='/singleProduct/:id' element={<SingleProductPage/>}/>
             <Route path='/login' element={<LoginPage/>}/>
             <Route path='/register' element={<RegisterPage/>}/>
+            <Route path='/salary' element={<SalaryPage/>}/>
+            <Route path='/employee' element={<Employee/>}/>
         </Routes>
       </div>
     </Router>
