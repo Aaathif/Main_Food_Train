@@ -1,0 +1,19 @@
+.container {
+    padding: 10rem;
+    background-color: beige;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.col2 {
+    flex-basis: 50%;
+    text-align: left;
+}
+
+.col2>img {
+    border-radius: 50%;
+}
