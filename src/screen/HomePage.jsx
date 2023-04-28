@@ -17,8 +17,8 @@ function HomePage() {
     <div>
       <Navbar />
       <Hero />
-      <SearchBar />
-      {/* <FeaturedService /> */}
+      {/* <SearchBar /> */}
+      <FeaturedService />
       <Services />
       <ProductList />
       <AdsPage />

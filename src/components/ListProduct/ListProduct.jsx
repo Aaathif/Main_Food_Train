@@ -7,7 +7,7 @@ import useFetch from '../../hooks/useFetch';
 
 function ListProduct() {
 
-    const { data, loading, error } = useFetch("http://localhost:8000/api/product?title=Lemon Pessi");
+    const { data, loading, error } = useFetch("http://localhost:8000/api/product");
     // const { data, loading, error } = useFetch(`http://localhost:8000/api/product?type=${type}`);
         console.log(data)
 
