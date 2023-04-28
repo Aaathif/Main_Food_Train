@@ -166,3 +166,38 @@ export const menuListInput = [
     placeholder: "Dressed with leaf lettuce and tomatoes on a toasted..."
   }
 ]
+
+
+// ----------------------------- paymentInput ---------------------------------------- 
+export const paymentInput = [
+  {
+    id: "cardNo",
+    label: "Card Number",
+    type: "text",
+    placeholder: "5589 3232 4535 3131",
+  },
+  {
+    id: "cardholderName",
+    label: "Card holder name",
+    type: "text",
+    placeholder: "De Silva",
+  },
+  {
+    id: "expMonth",
+    label: "Expired Month",
+    type: "text",
+    placeholder: "08/12",
+  },
+  {
+    id: "expYear",
+    label: "Expired Year",
+    type: "text",
+    placeholder: "2024",
+  },
+  {
+    id: "cvv",
+    label: "CVV",
+    type: "text",
+    placeholder: "956"
+  }
+]

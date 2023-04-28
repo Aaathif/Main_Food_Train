@@ -153,3 +153,38 @@ export const MenuListColumns = [
   }
 ]
 
+{/*------------------------ PaymentColumns --------------------------*/}
+
+
+export const PaymentColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "cardNo",
+    headerName: "Card Number",
+    width: 250,
+  },
+  {
+    field: "cardholderName",
+    headerName: "Card Holder Name",
+    width: 200,
+  },
+  {
+    field: "expMonth",
+    headerName: "Expired Month",
+    width: 100,
+  },
+  {
+    field: "expYear",
+    headerName: "Expired Year",
+    width: 100,
+  },
+  {
+    field: "cvv",
+    headerName: "CVV",
+    width: 100,
+  }
+]
