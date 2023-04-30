@@ -13,6 +13,8 @@ import LoginPage from './screen/LoginPage';
 import RegisterPage from './screen/RegisterPage';
 import SalaryPage from './screen/SalaryPage';
 import Employee from './screen/Employee';
+import CartPage from './screen/CartPage';
+import PaymentPage from './screen/PaymentPage';
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/salary' element={<SalaryPage/>}/>
             <Route path='/employee' element={<Employee/>}/>
+            <Route path='/cart' element={<CartPage/>}/>
+            <Route path='/payment' element={<PaymentPage/>}/>
         </Routes>
       </div>
     </Router>
