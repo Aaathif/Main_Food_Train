@@ -188,3 +188,131 @@ export const PaymentColumns = [
     width: 100,
   }
 ]
+
+{/*------------------------ PayrollColumns --------------------------*/}
+
+export const PayrollColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "basicSalary",
+    headerName: "Basic Salary",
+    width: 250,
+  },
+  {
+    field: "mealAllowance",
+    headerName: "Meal Allowance",
+    width: 200,
+  },
+  {
+    field: "transportationAllowance",
+    headerName: "Transportation Allowance",
+    width: 100,
+  },
+  {
+    field: "medicalAllowance",
+    headerName: "Medical Allowance",
+    width: 100,
+  },
+  {
+    field: "retirementInsurance",
+    headerName: "Retirement Insurance",
+    width: 100,
+  },
+  {
+    field: "tax",
+    headerName: "TAX",
+    width: 100,
+  },
+  {
+    field: "EPF",
+    headerName: "EPF",
+    width: 100,
+  },
+  {
+    field: "ETF",
+    headerName: "ETF",
+    width: 100,
+  }
+]
+
+{/*------------------------ BlogColumns --------------------------*/}
+
+
+export const BlogColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "TextH",
+    headerName: "Blog Header",
+    width: 250,
+  },
+  {
+    field: "TextP",
+    headerName: "Blog Paragraph",
+    width: 200,
+  },
+  {
+    field: "img",
+    headerName: "Image",
+    width: 100,
+  },
+  {
+    field: "Btn",
+    headerName: "Button",
+    width: 100,
+  },
+  {
+    field: "textFull",
+    headerName: "description",
+    width: 100,
+  },
+]
+
+
+{/*------------------------ EventColumns --------------------------*/}
+
+
+export const EventColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "title",
+    headerName: "Event Title",
+    width: 250,
+  },
+  {
+    field: "offer",
+    headerName: "Offer",
+    width: 80,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 100,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 300,
+  },
+  {
+    field: "photos",
+    headerName: "Photos",
+    width: 100,
+  },
+  {
+    field: "prices",
+    headerName: "Prices",
+    width: 100,
+  },
+]

@@ -201,3 +201,130 @@ export const paymentInput = [
     placeholder: "956"
   }
 ]
+
+// ----------------------------- payrollInput ---------------------------------------- 
+export const payrollInput = [
+  {
+    id: "basicSalary",
+    label: "Basic Salary",
+    type: "text",
+    placeholder: "23000",
+  },
+  {
+    id: "mealAllowance",
+    label: "Meal Allowance",
+    type: "text",
+    placeholder: "10000",
+  },
+  {
+    id: "transportationAllowance",
+    label: "Transportation Allowance",
+    type: "text",
+    placeholder: "5000",
+  },
+  {
+    id: "medicalAllowanceYear",
+    label: "Medical Allowance",
+    type: "text",
+    placeholder: "20000",
+  },
+  {
+    id: "retirementInsurance",
+    label: "Retirement Insurance",
+    type: "text",
+    placeholder: "50000"
+  },
+  {
+    id: "tax",
+    label: "Tax",
+    type: "text",
+    placeholder: "50000"
+  },
+  {
+    id: "EPF",
+    label: "EPF",
+    type: "text",
+    placeholder: "8"
+  },
+  {
+    id: "ETF",
+    label: "ETF",
+    type: "text",
+    placeholder: "3"
+  }
+]
+
+// ----------------------------- bloglInput ---------------------------------------- 
+export const blogInput = [
+  {
+    id: "TextH",
+    label: "Blog Tile",
+    type: "text",
+    placeholder: "Enter blog title",
+  },
+  {
+    id: "TextP",
+    label: "Blog Paragraph",
+    type: "text",
+    placeholder: "type blog paragraph",
+  },
+  {
+    id: "img",
+    label: "Imgae",
+    type: "text",
+    placeholder: "Enter image Url",
+  },
+  {
+    id: "Btn",
+    label: "Button",
+    type: "text",
+    placeholder: "Enter button name",
+  },
+  {
+    id: "textFull",
+    label: "Description",
+    type: "text",
+    placeholder: "Enter description"
+  },
+]
+
+
+// ----------------------------- eventInput ---------------------------------------- 
+export const eventInput = [
+  {
+    id: "title",
+    label: "Event Title",
+    type: "text",
+    placeholder: "Gold Iftar Meal Box",
+  },
+  {
+    id: "offer",
+    label: "offer",
+    type: "text",
+    placeholder: "50",
+  },
+  {
+    id: "date",
+    label: "text",
+    type: "text",
+    placeholder: "Enter Date",
+  },
+  {
+    id: "description",
+    label: "Description",
+    type: "text",
+    placeholder: "Mutton Biryani | chiken Handi | Half Naan | Samosa | Fruit Chaat | Salad |Dates|Mint Raita | Gulab Jamun | Water or juice",
+  },
+  {
+    id: "photos",
+    label: "Photos",
+    type: "text",
+    placeholder: "url"
+  },
+  {
+    id: "prices",
+    label: "Prices",
+    type: "text",
+    placeholder: "2990"
+  },
+]
