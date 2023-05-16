@@ -123,6 +123,12 @@ const Sidebar = () => {
 {/* ----------------------------------------------------------------------------------- */}
 
           <p className="title">USEFUL</p>
+          <Link to="/profile" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Employee Profile</span>
+            </li>
+          </Link>
           <li>
             <InsertChartIcon className="icon" />
             <span>Stats</span>

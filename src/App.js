@@ -23,6 +23,13 @@ import UpdateEvent from "./pages/UpdatePages/UpdateEvent/UpdateEvent";
 import NewEvent from "./pages/Adding Page/newEvent/NewEvent";
 import UpdateDelivery from "./pages/UpdatePages/UpdateDelivery/UpdateDelivery";
 import NewDelivery from "./pages/Adding Page/newDelivery/NewDelivery";
+import UpdateProduct from "./pages/UpdatePages/UpdateProduct/UpdateProduct";
+
+import Profile from './employee/pages/home/Profile';
+import Leave from './employee/pages/leave/Leave'
+import PayrollSlip from './employee/pages/payroll slip/PayrollSlip'
+// import SalaryMain from "./components/Salary2/SalaryMain";
+import Attendance2 from "./employee/pages/attandence/Attendance2";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -110,7 +117,7 @@ function App() {
               />
             </Route>
 
-            {/* --------------------------------------------------------------------- */}
+            {/* --------------------------- Product ------------------------------------------ */}
 
             <Route path="product">
               <Route
@@ -133,7 +140,15 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <NewProduct  inputs={productInputs} title="Add New Products hello"/>
+                    <NewProduct  inputs={productInputs} title="Add New Products"/>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateProduct inputs={productInputs} title="Update Product Details" />
                   </ProtectedRoute>
                 }
               />
@@ -523,6 +538,11 @@ function App() {
                 }
               />
             </Route>
+
+            <Route path='/profile' element={<Profile/>} />
+            <Route path='/attendance2' element={<Attendance2/>} />
+            <Route path='/leaves' element={<Leave/>} />
+            <Route path='/payrollslip' element={<PayrollSlip/>} />
 
 
 
