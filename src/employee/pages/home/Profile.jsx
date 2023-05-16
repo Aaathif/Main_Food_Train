@@ -10,7 +10,6 @@ function profile() {
 
   return (
     <div>
-
       <div>
         <Navbar />
       </div>
