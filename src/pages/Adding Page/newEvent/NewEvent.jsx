@@ -5,18 +5,22 @@ import { useState } from "react";
 import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 const NewEvent = ({ inputs, title }) => {
 
   const [info, setInfo] = useState({});
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleClick = async (e) => {
-    alert("Hello submitted")
+    
     e.preventDefault();
     const data = new FormData();
     data.append("upload_preset", "upload");
@@ -28,8 +32,13 @@ const NewEvent = ({ inputs, title }) => {
       };
 
       await axios.post("http://localhost:8000/api/event", newEvent);
+      navigate("/event")
+      toast.success('Form submitted successfully!');
+
     } catch (err) {
       console.log(err);
+      toast.error('Adding Failed')
+
     }
   };
 
@@ -37,6 +46,7 @@ const NewEvent = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
+      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">

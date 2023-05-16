@@ -5,10 +5,14 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import { useState } from "react";
 import { useLocation, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const UpdateMenuList = ({ inputs, title }) => {
 
   const [MenuListData, setMenuListData] = useState({})
+  const navigate = useNavigate()
 
   const location = useLocation()
   console.log(location)
@@ -23,10 +27,14 @@ const UpdateMenuList = ({ inputs, title }) => {
     console.log(MenuListData)
     try {
       const updatedMenuList = await axios.put(`http://localhost:8000/api/menuList/${ids}`, MenuListData);
-  
+      navigate("/menuList")
+      toast.success('Your data has been successfully updated!');
+
       console.log('Updated MenuList:', updatedMenuList.data);
     } catch (err) {
       console.log(err);
+      toast.error('Updating Failed')
+
     }
   };
 
@@ -42,6 +50,7 @@ const UpdateMenuList = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
+      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">

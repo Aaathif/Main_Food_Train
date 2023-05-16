@@ -5,11 +5,15 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import { useState } from "react";
 import { useLocation, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 const UpdatePayroll = ({ inputs, title }) => {
 
   const [payrollData, setPayrollData] = useState({})
+  const navigate = useNavigate()
 
   const location = useLocation()
   console.log(location)
@@ -23,12 +27,14 @@ const UpdatePayroll = ({ inputs, title }) => {
     console.log(payrollData)
     try {
       const updatePayroll = await axios.put(`http://localhost:8000/api/payroll/${ids}`, payrollData);
-      if(updatePayroll){
-        alert("Your data has been successfully updated")
-      }
+      navigate("/payroll")
+      toast.success('Your data has been successfully updated!');
+
       console.log('Updated payroll:', updatePayroll.data);
     } catch (err) {
       console.log(err);
+      toast.error('Updating Failed')
+
     }
   };
 
@@ -44,6 +50,7 @@ const UpdatePayroll = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
+      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">

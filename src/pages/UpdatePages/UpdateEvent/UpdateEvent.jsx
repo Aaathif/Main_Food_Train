@@ -5,10 +5,15 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import { useState } from "react";
 import { useLocation, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+
 
 const UpdateEvent = ({ inputs, title }) => {
 
   const [eventData, setEventData] = useState({})
+  const navigate = useNavigate()
 
   const location = useLocation()
   console.log(location)
@@ -23,12 +28,14 @@ const UpdateEvent = ({ inputs, title }) => {
     console.log(eventData)
     try {
       const updatedEvent = await axios.put(`http://localhost:8000/api/event/${ids}`, eventData);
-      if(updatedEvent){
-        alert("Your data has been successfully updated")
-      }
+      navigate("/event")
+      toast.success('Your data has been successfully updated!');
+
       console.log('Updated EventData:', updatedEvent.data);
     } catch (err) {
       console.log(err);
+      toast.error('Updating Failed')
+
     }
   };
 
@@ -44,6 +51,7 @@ const UpdateEvent = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
+      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">

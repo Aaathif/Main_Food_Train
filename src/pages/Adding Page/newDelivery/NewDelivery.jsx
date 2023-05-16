@@ -31,7 +31,7 @@ const NewDelivery = ({ inputs, title }) => {
       };
 
       await axios.post("http://localhost:8000/api/delivery", newDelivery);
-      navigate("/product")
+      navigate("/delivery")
       toast.success('Form submitted successfully!');
 
     } catch (err) {
