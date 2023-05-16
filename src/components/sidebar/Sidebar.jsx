@@ -83,6 +83,42 @@ const Sidebar = () => {
               <span>Event</span>
             </li>
           </Link>
+          <Link to="/delivery" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Delivery</span>
+            </li>
+          </Link>
+          <Link to="/feedback" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Feedback</span>
+            </li>
+          </Link>
+          <Link to="/attendance" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>attendance</span>
+            </li>
+          </Link>
+          <Link to="/leave" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Leave</span>
+            </li>
+          </Link>
+          <Link to="/contacts" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Contacts</span>
+            </li>
+          </Link>
+          <Link to="/customers" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Customer</span>
+            </li>
+          </Link>
 
 {/* ----------------------------------------------------------------------------------- */}
 

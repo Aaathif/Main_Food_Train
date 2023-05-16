@@ -328,3 +328,27 @@ export const eventInput = [
     placeholder: "2990"
   },
 ]
+
+
+// ----------------------------- deliveryInput ---------------------------------------- 
+export const deliveryInput = [
+  {
+    id: "address",
+    label: "Address",
+    type: "text",
+    placeholder: "Dematagoda",
+  },
+  {
+    id: "phoneNo",
+    label: "Phone No",
+    type: "text",
+    placeholder: "0771285673",
+  },
+  {
+    id: "city",
+    label: "City",
+    type: "text",
+    placeholder: "colombo",
+  },
+
+]

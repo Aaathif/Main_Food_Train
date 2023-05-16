@@ -4,12 +4,12 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { blogInput, eventInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
+import { blogInput, deliveryInput, eventInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns , PaymentColumns, PayrollColumns, BlogColumns, EventColumns} from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns , PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, AttendanceColumns, cusColumns, leaveColumns, contactColumns} from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
@@ -21,6 +21,8 @@ import UpdateBlog from "./pages/UpdatePages/UpdateBlog/UpdateBlog";
 import NewBlog from "./pages/Adding Page/newBlog/NewBlog";
 import UpdateEvent from "./pages/UpdatePages/UpdateEvent/UpdateEvent";
 import NewEvent from "./pages/Adding Page/newEvent/NewEvent";
+import UpdateDelivery from "./pages/UpdatePages/UpdateDelivery/UpdateDelivery";
+import NewDelivery from "./pages/Adding Page/newDelivery/NewDelivery";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -313,7 +315,215 @@ function App() {
                 }
               />
             </Route>
+
+            {/* -----------------------------Delivery ---------------------------------------- */}
+
+            <Route path="delivery">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={delievryColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewDelivery inputs={deliveryInput} title="Add Event" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":eventId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateDelivery inputs={deliveryInput} title="Update Event Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------FeedBack ---------------------------------------- */}
+
+            <Route path="feedback">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={FeedbackColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              
+              <Route
+                path=":eventId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------Attendance ---------------------------------------- */}
+
+            <Route path="attendance">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={AttendanceColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Attendance" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Attendance Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
             
+            
+            {/* -----------------------------leave ---------------------------------------- */}
+
+            <Route path="leave">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={leaveColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------customer ---------------------------------------- */}
+
+            <Route path="customers">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={cusColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------contacts ---------------------------------------- */}
+
+            <Route path="contacts">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={contactColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewBlog inputs={blogInput} title="Add Blog" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":blogId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
 
 
           </Route>

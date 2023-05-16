@@ -316,3 +316,197 @@ export const EventColumns = [
     width: 100,
   },
 ]
+
+{/*------------------------ delievryColumns --------------------------*/}
+export const delievryColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 300,
+  },
+  {
+    field: "phoneNo",
+    headerName: "Phone No",
+    width: 150,
+  },
+  {
+    field: "city",
+    headerName: "City",
+    width: 150,
+  },
+]
+
+
+{/*------------------------ FeedbackColumns --------------------------*/}
+export const FeedbackColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "feedbackType",
+    headerName: "Feedback Type",
+    width: 300,
+  },
+  {
+    field: "category",
+    headerName: "Category",
+    width: 150,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 150,
+  },
+]
+
+{/*------------------------ AttendanceColumns --------------------------*/}
+export const AttendanceColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "name",
+    width: 300,
+  },
+  {
+    field: "position",
+    headerName: "position",
+    width: 150,
+  },
+  {
+    field: "employeeID",
+    headerName: "employeeID",
+    width: 150,
+  },
+]
+
+
+{/*------------------------ leaveColumns --------------------------*/}
+
+export const leaveColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 300,
+  },
+  {
+    field: "position",
+    headerName: "Position",
+    width: 150,
+  },
+  {
+    field: "employeeID",
+    headerName: "Employee ID",
+    width: 150,
+  },
+  {
+    field: "stratingDate",
+    headerName: "Strating Date",
+    width: 150,
+  },
+  {
+    field: "endingDate",
+    headerName: "Ending Date",
+    width: 150,
+  },
+  {
+    field: "leave",
+    headerName: "Leave",
+    width: 150,
+  },
+  {
+    field: "reason",
+    headerName: "Reason",
+    width: 150,
+  },
+]
+
+
+{/*------------------------ cusColumns --------------------------*/}
+
+export const cusColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "username",
+    headerName: "Username",
+    width: 100,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
+  },
+  {
+    field: "firstName",
+    headerName: "FirstName",
+    width: 100,
+  },
+  {
+    field: "lastName",
+    headerName: "lastName",
+    width: 100,
+  },
+  {
+    field: "contactNo",
+    headerName: "ContactNo",
+    width: 100,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 100,
+  },
+  {
+    field: "dateOfBirth",
+    headerName: "DateOfBirth",
+    width: 100,
+  },
+]
+
+{/*------------------------ contactUSColumns --------------------------*/}
+export const contactColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 300,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
+  },
+  {
+    field: "phone",
+    headerName: "Phone",
+    width: 150,
+  },
+  {
+    field: "message",
+    headerName: "Message",
+    width: 150,
+  },
+]
