@@ -129,6 +129,12 @@ const Sidebar = () => {
               <span>Employee Profile</span>
             </li>
           </Link>
+          <Link to="/addEmpo" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Add Employee</span>
+            </li>
+          </Link>
           <li>
             <InsertChartIcon className="icon" />
             <span>Stats</span>

@@ -58,7 +58,7 @@ export const productInputs = [
   {
     id: "date",
     label: "Date",
-    type: "text",
+    type: "date",
     placeholder: "2023.04.31",
   },
   {
@@ -351,4 +351,52 @@ export const deliveryInput = [
     placeholder: "colombo",
   },
 
+]
+
+
+
+// ----------------------------- addEmpoInput ---------------------------------------- 
+export const addEmpoInput = [
+  {
+    id: "name",
+    label: "Name",
+    type: "text",
+    placeholder: "Enter Name",
+  },
+  {
+    id: "nationality",
+    label: "Nationality",
+    type: "text",
+    placeholder: "Enter Nationality",
+  },
+  {
+    id: "NIC",
+    label: "NIC",
+    type: "text",
+    placeholder: "Enter NIC",
+  },
+  {
+    id: "gender",
+    label: "Gender",
+    type: "text",
+    placeholder: "Enter Gender",
+  },
+  {
+    id: "dob",
+    label: "Date of birth",
+    type: "date",
+    placeholder: "Choose date of birth"
+  },
+  {
+    id: "contactNumber",
+    label: "Contact Number",
+    type: "number",
+    placeholder: "Choose contact number"
+  },
+  {
+    id: "address",
+    label: "Address",
+    type: "text",
+    placeholder: "Choose address"
+  },
 ]

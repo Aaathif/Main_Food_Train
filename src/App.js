@@ -4,12 +4,12 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { blogInput, deliveryInput, eventInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
+import { addEmpoInput, blogInput, deliveryInput, eventInput, menuListInput, paymentInput, payrollInput, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, inventoryColumns, userColumns, MenuListColumns , PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, AttendanceColumns, cusColumns, leaveColumns, contactColumns} from "./datatablesource";
+import { hotelColumns, inventoryColumns, userColumns, MenuListColumns , PaymentColumns, PayrollColumns, BlogColumns, EventColumns, delievryColumns, FeedbackColumns, AttendanceColumns, cusColumns, leaveColumns, contactColumns, addEmpoColumns} from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewProduct from "./pages/newProduct/NewProduct";
 import NewMenuList from "./pages/newMenuList/NewMenuList";
@@ -30,6 +30,8 @@ import Leave from './employee/pages/leave/Leave'
 import PayrollSlip from './employee/pages/payroll slip/PayrollSlip'
 // import SalaryMain from "./components/Salary2/SalaryMain";
 import Attendance2 from "./employee/pages/attandence/Attendance2";
+import NewEmployee from "./pages/Adding Page/newEmployee/NewEmployee";
+import UpdateEmployee from "./pages/UpdatePages/UpdateEmployee/UpdateEmployee";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -534,6 +536,43 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <UpdateBlog inputs={blogInput} title="Update Blog Details" />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            {/* -----------------------------AddEmployee ---------------------------------------- */}
+
+            <Route path="addEmpo">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={addEmpoColumns} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewEmployee inputs={addEmpoInput} title="Add Employee" />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":eventId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="update/:Id"
+                element={
+                  <ProtectedRoute>
+                    <UpdateEmployee inputs={addEmpoInput} title="Update Employee Details" />
                   </ProtectedRoute>
                 }
               />

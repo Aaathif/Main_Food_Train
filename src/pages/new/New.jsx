@@ -4,18 +4,22 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+
 
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleClick = async (e) => {
-    alert("Hello submitted")
     e.preventDefault();
     const data = new FormData();
     data.append("file", file);
@@ -34,8 +38,11 @@ const New = ({ inputs, title }) => {
       };
 
       await axios.post("http://localhost:8000/api/auth/register", newUser);
+      navigate("/users")
+      toast.success('Form submitted successfully!');
     } catch (err) {
       console.log(err);
+      toast.error('Adding Failed')
     }
   };
 
@@ -43,6 +50,7 @@ const New = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
+      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">

@@ -510,3 +510,50 @@ export const contactColumns = [
     width: 150,
   },
 ]
+
+
+{/*------------------------ EventColumns --------------------------*/}
+
+
+export const addEmpoColumns = [
+  {
+    field: "_id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 250,
+  },
+  {
+    field: "nationality",
+    headerName: "Nationality",
+    width: 80,
+  },
+  {
+    field: "NIC",
+    headerName: "NIC",
+    width: 100,
+  },
+  {
+    field: "gender",
+    headerName: "Gender",
+    width: 100,
+  },
+  {
+    field: "dob",
+    headerName: "DOB",
+    width: 100,
+  },
+  {
+    field: "contactNumber",
+    headerName: "Contact Number",
+    width: 100,
+  },
+  {
+    field: "address",
+    headerName: "Address",
+    width: 300,
+  },
+]

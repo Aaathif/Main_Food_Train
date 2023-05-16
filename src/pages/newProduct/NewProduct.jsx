@@ -6,7 +6,14 @@ import { useState } from "react";
 import axios from "axios";
 import useFetch from "../../hooks/useFetch";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+
 const New = ({ inputs, title }) => {
+
+  const navigate = useNavigate()
+
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({});
 
@@ -46,7 +53,6 @@ const New = ({ inputs, title }) => {
   // };
 
   const handleClick = async (e) => {
-    alert("Hello submitted")
     e.preventDefault();
     const data = new FormData();
     const sizesArray = size.split(",").map((s) => s.trim());
@@ -68,8 +74,11 @@ const New = ({ inputs, title }) => {
       };
 
       await axios.post("http://localhost:8000/api/product", newProduct);
+      navigate("/product")
+      toast.success('Form submitted successfully!');
     } catch (err) {
       console.log(err);
+      toast.error('Adding Failed')
     }
   };
 
@@ -77,6 +86,7 @@ const New = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
+      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">

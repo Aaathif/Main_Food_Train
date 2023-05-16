@@ -7,11 +7,16 @@ import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 // import userInputs from '../../formSource'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Datatable = ({columns}) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();  //this is need when we need to delete
   const { data, loading, error } = useFetch(`/${path}`);  //this is fetch user/product pages when we needed 
+
+
 
   useEffect(() => {
     setList(data);
@@ -21,7 +26,10 @@ const Datatable = ({columns}) => {
     try {
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
-    } catch (err) {}
+      toast.success('Deleted successfully!');
+    } catch (err) {
+      toast.error('Deleting failed');
+    }
   };
 
   const actionColumn = [
@@ -51,6 +59,7 @@ const Datatable = ({columns}) => {
   ];
   return (
     <div className="datatable">
+      <ToastContainer />
       <div className="datatableTitle">
         {path}
         <Link to={`/${path}/new`} className="link">
