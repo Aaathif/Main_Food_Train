@@ -38,6 +38,41 @@ const Datatable = ({columns}) => {
       headerName: "Action",
       width: 200,
       renderCell: (params) => {
+        if(path === 'addEmpo'){
+          return (
+            <div className="cellAction">
+            <Link to={`/profile/${params.row._id}`} style={{ textDecoration: "none" }}>
+              <div className="viewButton">View</div>
+            </Link>
+            <Link to={`/${path}/update/${params.row._id}`} state={data} style={{ textDecoration: "none" }}>
+              <div className="viewButton">Update</div>
+            </Link>
+            <div
+              className="deleteButton"
+              onClick={() => handleDelete(params.row._id)}
+            >
+              Delete
+            </div>
+          </div>
+          )
+        }else if(path === 'product')
+        return (
+          <div className="cellAction">
+          <Link to={`/${path}/${params.row._id}`} style={{ textDecoration: "none" }}>
+            <div className="viewButton">View</div>
+          </Link>
+          <Link to={`/${path}/update/${params.row._id}`} state={data} style={{ textDecoration: "none" }}>
+            <div className="viewButton">Update</div>
+          </Link>
+          <div
+            className="deleteButton"
+            onClick={() => handleDelete(params.row._id)}
+          >
+            Delete
+          </div>
+        </div>
+        )
+        else {
         return (
           <div className="cellAction">
             {/* <Link to="/users/test" style={{ textDecoration: "none" }}>
@@ -53,7 +88,7 @@ const Datatable = ({columns}) => {
               Delete
             </div>
           </div>
-        );
+        ); }
       },
     },
   ];

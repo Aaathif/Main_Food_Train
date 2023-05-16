@@ -47,6 +47,7 @@ function Salary({Data}) {
          TtlEarn= info.basicSalary-(-info.mealAllowance)-(-info.transportationAllowance)-(-info.medicalAllowance);
          TtlRed = info.retirementInsurance-(-Tax)-(-EPF)-(-ETF) ; 
 
+        setSalT(SalT)
         setTax(Tax);
         setEPF(EPF);
         setETF(ETF);
@@ -107,15 +108,19 @@ function Salary({Data}) {
                 
                 <div className='align' style={{ display: 'flex',  gap: '80px' , marginTop:'20px' , marginLeft:'10px', marginBottom:'10px'}}>
 
-                <h4>{Data.TextP3}</h4>
+                {/* <h4>{Data.TextP3}</h4> */}
                 {/* name */}
-                <input type="text" class="form-control" placeholder={Data.TextP5}/>
+                {/* <input type="text" class="form-control" placeholder={Data.TextP5}/> */}
                 </div>
 
                 <div style={{ display: 'flex', gap: '34px' , marginLeft:'10px' }}>
                 <h4>{Data.TextP4}</h4>
                 {/* emp ID */}
-                <input type="text" class="form-control" placeholder={Data.TextP6}/>
+                <input type="text" class="form-control" 
+                placeholder={Data.TextP6}
+                onChange={handleChange}
+                id='employeeId'
+                />
                 </div>
             </div>
 
@@ -123,13 +128,13 @@ function Salary({Data}) {
             <div className={css.col} style={{flex:1}}>
 
                 <div style={{ display: 'flex', gap: '100px' , marginTop:'20px' , marginLeft:'10px', marginBottom:'10px' }}>
-                <h4>{Data.TextP7}</h4>
-                <input type="text" class="form-control" placeholder={Data.TextP9}/>
+                {/* <h4>{Data.TextP7}</h4> */}
+                {/* <input type="text" class="form-control" placeholder={Data.TextP9}/> */}
                 </div>
 
                 <div style={{ display: 'flex', gap: '48px' , marginLeft:'10px' }}>
-                <h4>{Data.TextP8}</h4>
-                <input type="text" class="form-control" placeholder={Data.TextP10}/>
+                {/* <h4>{Data.TextP8}</h4> */}
+                {/* <input type="text" class="form-control" placeholder={Data.TextP10}/> */}
                 </div>
             </div>
 
@@ -236,7 +241,7 @@ function Salary({Data}) {
                 {/* Tax */}
                 <input type="text" class="form-control" placeholder={Data.TextP29} value={Tax}
                     onChange={handleChange}
-                    id='tax'
+                    id='Tax'
                 />
              </div>
 

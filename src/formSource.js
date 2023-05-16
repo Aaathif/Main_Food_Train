@@ -358,6 +358,12 @@ export const deliveryInput = [
 // ----------------------------- addEmpoInput ---------------------------------------- 
 export const addEmpoInput = [
   {
+    id: "eId",
+    label: "Employee ID",
+    type: "text",
+    placeholder: "Enter ID",
+  },
+  {
     id: "name",
     label: "Name",
     type: "text",

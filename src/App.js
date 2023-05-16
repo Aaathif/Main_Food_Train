@@ -578,7 +578,7 @@ function App() {
               />
             </Route>
 
-            <Route path='/profile' element={<Profile/>} />
+            <Route path='/profile/:id' element={<Profile/>} />
             <Route path='/attendance2' element={<Attendance2/>} />
             <Route path='/leaves' element={<Leave/>} />
             <Route path='/payrollslip' element={<PayrollSlip/>} />

@@ -41,12 +41,6 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/hotels" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Hotels</span>
-            </li>
-          </Link>
           <Link to="/product" style={{ textDecoration: "none" }}>
             <li>
               <CreditCardIcon className="icon" />
@@ -123,12 +117,6 @@ const Sidebar = () => {
 {/* ----------------------------------------------------------------------------------- */}
 
           <p className="title">USEFUL</p>
-          <Link to="/profile" style={{ textDecoration: "none" }}>
-            <li>
-              <LocalShippingIcon className="icon" />
-              <span>Employee Profile</span>
-            </li>
-          </Link>
           <Link to="/addEmpo" style={{ textDecoration: "none" }}>
             <li>
               <LocalShippingIcon className="icon" />

@@ -193,8 +193,8 @@ export const PaymentColumns = [
 
 export const PayrollColumns = [
   {
-    field: "_id",
-    headerName: "ID",
+    field: "employeeId",
+    headerName: "Employee Id",
     width: 70,
   },
   {
@@ -516,10 +516,15 @@ export const contactColumns = [
 
 
 export const addEmpoColumns = [
+  // {
+  //   field: "_id",
+  //   headerName: "ID",
+  //   width: 70,
+  // },
   {
-    field: "_id",
-    headerName: "ID",
-    width: 70,
+    field: "eId",
+    headerName: "Employee ID",
+    width: 140,
   },
   {
     field: "name",
