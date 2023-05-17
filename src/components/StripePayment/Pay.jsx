@@ -15,7 +15,7 @@ const Pay = () =>{
     const makeRequest= async () => {
 
         try{
-        const res = await axios.post("http://localhost:5000/api/checkout/payment",{
+        const res = await axios.post("http://localhost:8000/api/checkout/stripe",{
             tokenId:stripeToke.id,
              amount:2000,
              email: stripeToke.email, 
