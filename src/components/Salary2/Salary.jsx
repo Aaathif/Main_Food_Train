@@ -4,6 +4,10 @@ import axios from 'axios';
 // import DatePicker from 'react-datepicker';
 // import { toWords } from 'number-to-words';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+
 function Salary({Data}) {
 
     const [salary, setSalary]=useState();
@@ -12,6 +16,8 @@ function Salary({Data}) {
     const [medical , setMedical] = useState();
     const [insurance , setInsurance] = useState();
     const [selectedDate, setSelectedDate] = useState(null);
+
+    const navigate = useNavigate()
     
 
 
@@ -79,7 +85,6 @@ function Salary({Data}) {
     } 
 
     const handleClick = async (e) => {  //step 3
-        alert("Hello submitted")
         e.preventDefault();
         const data = new FormData();
         data.append("upload_preset", "upload");
@@ -91,13 +96,17 @@ function Salary({Data}) {
             ETF,
           };
           await axios.post("http://localhost:8000/api/payroll", newPayroll)
+          navigate("/payroll")
+        toast.success('Form submitted successfully!');
         } catch (err) {
           console.log(err);
+          toast.error('Adding Failed')
         }
       } 
 
   return (
     <div class={css.container}>
+        <ToastContainer />
         <div className={css.row}>
              <h2>{Data.TextP1}</h2>
              <h5>{Data.TextP2}</h5>
@@ -163,7 +172,6 @@ function Salary({Data}) {
 
 
         </div>
-        {info.basicSalary}
         <div className={`${css.row} ${css.sah} ${css.saals}`} style={{display:'flex' , height:'350px'}  }>
         <div className={css.col} /* style={{flex:1.8}} */>
 
