@@ -1,0 +1,77 @@
+.container {
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.row1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 6rem 2rem;
+    text-align: left;
+
+}
+
+.colum1 {
+    flex-basis: 50%;
+    /* flex-direction: column; */
+    padding-left: 3rem;
+}
+
+.col1 {
+    flex-basis: 100%;
+    margin-left: 4rem;
+}
+
+.colum1>h1 {
+    text-align: left;
+    color: #67108F;
+    font-family: Lucida Console;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.colum1>h2 {
+    margin-top: 1rem;
+    text-align: left;
+    font-family: Lucida Console;
+    color: #7D7979;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.colum1>button {
+    background-color: rgb(201, 195, 195);
+    text-align: center;
+    color: black;
+    width: 40%;
+    height: 40px;
+    border: none;
+    margin-right: 5%;
+    font-size: 25px;
+    margin-top: 2rem;
+}
+
+.buybutton>button {
+    width: 85%;
+    font-size: 2rem;
+    height: 40px;
+    margin-top: 1rem;
+    background-color: #43BC2F;
+    border: none;
+    font-weight: bold;
+}
+
+.details>p {
+    margin-top: 2rem;
+    font-size: 20px;
+    font-family: Lucida Handwriting;
+    text-align: left;
+}
