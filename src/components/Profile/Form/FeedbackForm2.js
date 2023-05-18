@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {options , categories} from './Data'
 import Form from './Form.module.css'
 import axios from 'axios'
 
-function FeedbackForm() {
+function FeedbackForm({ closeModal, feedback }) {
     const [feedbackType, setFeedbackType] = useState('N/A')
     const [category, setCategory] = useState('N/A')
     const [description, setDescription] = useState('')
-    const [submittedData, setSubmittedData] = useState([])
+
+    useEffect(() => {
+      if (feedback) {
+        setFeedbackType(feedback.feedbackType);
+        setCategory(feedback.category);
+        setDescription(feedback.description);
+      }
+    }, [feedback]);
 
     const handleType = (event) => {
         setFeedbackType(event.target.value)
@@ -22,20 +29,31 @@ function FeedbackForm() {
     }
 
    const handleSubmit = async (event) => {
-     event.preventDefault();
+      event.preventDefault();
       const formData = { feedbackType, category, description };
-      console.log("Form data:", formData);
+      // console.log("Form data:", formData);
       // code to submit form data
+
+      if (feedback) {
+        try {
+          const response = await axios.put(`http://localhost:8000/api/feedback/${feedback._id}`, formData)          
+          console.log('Updated feedback:', response.data)
+          closeModal()
+        } catch (error) {
+          console.log('Error:', error.message)
+        }
+      } else {
       try {
         const response = await axios.post('http://localhost:8000/api/feedback/', formData);
         console.log('Response:', response.data);
-        setSubmittedData(response.data);
-        alert("Submitted")
+        alert("Feedback Submitted")
+        closeModal()
       } catch (error) {
         console.log('Error:', error.message);
       }
+
     }
-    
+  }
 
   return (
     <div className={Form.container}> 
@@ -68,7 +86,9 @@ function FeedbackForm() {
         />
 
 
-        <button type='submit' className={Form.submit}>Submit</button>
+        <button type='submit' className={Form.submit}>
+          {feedback ? 'Update' : 'Submit'}
+        </button>
       </form>
       
     </div>
@@ -77,75 +97,3 @@ function FeedbackForm() {
 
 export default FeedbackForm
 
-
-// import React, { useState } from 'react'
-// import {options , categories} from './Data'
-// import Form from './Form.module.css'
-// import axios from 'axios'
-
-// function FeedbackForm() {
-//     // const [feedbackType, setFeedbackType] = useState('N/A')
-//     // const [category, setCategory] = useState('N/A')
-//     // const [description, setDescription] = useState('')
-//     const [ data, setData] = useState({feedbackType: "", category: "", description: ""})
-//     // const [submittedData, setSubmittedData] = useState([])
-
-//     const handleChange = (event) => {
-//       const name = event.target.name;
-//       const value = event.target.value;
-//       setData({...data, [name]: value})
-//     }
-
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-        
-    
-//         axios.post('http://localhost:8000/api/contacts', data)
-//       .then(response => {
-//         console.log(response.data);
-//         alert('Successfully Submitted')
-//         setData({feedbackType:" ", category:" ", description:" "});
-//       })
-//       .catch(error => {
-//         console.log(error);
-//         alert("Something went wrong. Please try again later")
-//       })
-
-//         // setSubmittedData([...submittedData, data])
-//         // setFeedbackType('N/A')
-//         // setCategory('N/A')
-//         // setDescription('')
-//         // alert('Successfully Submitted')
-
-        
-//     }
-
-//   return (
-//     <div className={Form.container}> 
-//       <h1 className={Form.header}>Feedback Form</h1>
-//       <form onSubmit={handleSubmit}>
-//         <label className={Form.label}>Select Type: </label>
-//         <input type='text' name='feedbackType' onChange={handleChange} value={data.feedbackType} placeholder='Enter Feedback Type'/>
-        
-//         <label className={Form.label}>Select Category: </label>
-//         <input type='text' name='category' onChange={handleChange} value={data.category} placeholder='Enter Category'/>
-        
-//         <label className={Form.label}>Description </label>
-
-//         <textarea onChange={handleChange} rows={5} cols={50} className={Form.select} placeholder='Enter Your Message' value={data.description} />
-//         {/* <textarea 
-//             onChange={handleChange}  
-//             rows={5} cols={50} className={Form.select}
-//             placeholder='Enter Your Message'
-//             value={data.description}
-//         /> */}
-
-
-//         <button type='submit' className={Form.submit}>Submit</button>
-//       </form>
-      
-//     </div>
-//   )
-// }
-
-// export default FeedbackForm
