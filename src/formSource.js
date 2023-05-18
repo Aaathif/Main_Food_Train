@@ -10,6 +10,7 @@ export const userInputs = [
     label: "Email",
     type: "email",
     placeholder: "john_doe@gmail.com",
+    
   },
   {
     id: "phone",
@@ -261,30 +262,36 @@ export const blogInput = [
     label: "Blog Tile",
     type: "text",
     placeholder: "Enter blog title",
+    required: true,
   },
   {
     id: "TextP",
     label: "Blog Paragraph",
     type: "text",
     placeholder: "type blog paragraph",
+    required: true,
   },
   {
     id: "img",
     label: "Imgae",
     type: "text",
     placeholder: "Enter image Url",
+    required: true,
   },
   {
     id: "Btn",
     label: "Button",
     type: "text",
     placeholder: "Enter button name",
+    required: true,
+
   },
   {
     id: "textFull",
     label: "Description",
     type: "text",
-    placeholder: "Enter description"
+    placeholder: "Enter description",
+    required: true,
   },
 ]
 
@@ -337,18 +344,21 @@ export const deliveryInput = [
     label: "Address",
     type: "text",
     placeholder: "Dematagoda",
+    required: true,
   },
   {
     id: "phoneNo",
     label: "Phone No",
     type: "text",
     placeholder: "0771285673",
+    required: true,
   },
   {
     id: "city",
     label: "City",
     type: "text",
     placeholder: "colombo",
+    required: true,
   },
 
 ]

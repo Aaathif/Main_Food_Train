@@ -3,7 +3,7 @@ import "./UpdateDelivery.scss";
 import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +14,7 @@ const UpdateDelivery = ({ inputs, title }) => {
 
   const [deliveryData, setDeliveryData] = useState({})
   const navigate = useNavigate()
-
+  const [getDeliveryData, setGetDeliveryData] = useState({});
 
   const location = useLocation()
   console.log(location)
@@ -22,6 +22,23 @@ const UpdateDelivery = ({ inputs, title }) => {
   console.log(ids)
 //   const data = location.state.data
 //   console.log(data)
+
+  useEffect(() => {
+  axios
+    .get(`http://localhost:8000/api/delivery/find/${ids}`)
+    .then((res) => {
+      setGetDeliveryData(res.data);
+      // alert(res.data.TextH)
+    })
+    .catch((err) => {
+      console.log(err.data);
+    });
+    }, [ids]);
+
+    const mergedData = inputs.map((item) => ({
+    ...item,
+     value: getDeliveryData[item.id] || "",
+}));
 
   const updateDelivery = async () => {
     // const { id } = MenuList;
@@ -62,7 +79,7 @@ const UpdateDelivery = ({ inputs, title }) => {
         <div className="bottom">
           <div className="right">
             <form onSubmit={handleSubmit}>
-              {inputs.map((input) => (
+              {mergedData.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input
@@ -70,6 +87,7 @@ const UpdateDelivery = ({ inputs, title }) => {
                     type={input.type}
                     placeholder={input.placeholder}
                     id={input.id}
+                    defaultValue={input.value}
                   />
                 </div>
               ))}

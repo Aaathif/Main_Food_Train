@@ -1,45 +1,44 @@
 import "./NewBlog.scss";
-
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+//import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
+import { useForm } from 'react-hook-form';
+import { Link } from "react-router-dom";
 
 
 const NewBlog = ({ inputs, title }) => {
-
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [info, setInfo] = useState({});
-  const navigate = useNavigate()
 
-  const handleChange = (e) => {
-    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
+  // const handleChange = (e) => {
+  //   setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  // };
 
-  const handleClick = async (e) => {
-    
-    e.preventDefault();
-    const data = new FormData();
-    data.append("upload_preset", "upload");
+  // const onSubmit = async (e) => {
+  //   alert("Hello submitted")
+  //   e.preventDefault();
+  //   const data = new FormData();
+  //   data.append("upload_preset", "upload");
+  //   try {
+
+  //     const newUser = {
+  //       ...info,
+
+  //     };
+
+  //     await axios.post("http://localhost:8000/api/blog", newUser);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  const onSubmit = async (data) => {
+    alert("Hello submitted ");
     try {
-
-      const newUser = {
-        ...info,
-
-      };
-
-      await axios.post("http://localhost:8000/api/blog", newUser);
-      navigate("/blog")
-      toast.success('Form submitted successfully!');
-
-
+      await axios.post("http://localhost:8000/api/blog", data);
     } catch (err) {
       console.log(err);
-      toast.error('Adding Failed')
-
     }
   };
 
@@ -47,7 +46,6 @@ const NewBlog = ({ inputs, title }) => {
   return (
     <div className="new">
       <Sidebar />
-      <ToastContainer />
       <div className="newContainer">
         <Navbar />
         <div className="top">
@@ -56,19 +54,21 @@ const NewBlog = ({ inputs, title }) => {
         <div className="bottom">
 
           <div className="right">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               {inputs.map((input) => (
-                <div className="formInput" key={input.id}>
+                <div className="formInput" key={input.id} >
                   <label>{input.label}</label>
                   <input
-                    onChange={handleChange}
+                    {...register(input.id, { required: true })}
+                   // onChange={handleChange}
                     type={input.type}
                     placeholder={input.placeholder}
                     id={input.id}
                   />
+                   {errors[input.id] && <span>This field is required.</span>}
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button type="submit">Send</button>
             </form>
           </div>
         </div>

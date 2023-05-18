@@ -3,7 +3,7 @@ import "./updatePayment.scss";
 import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,11 +14,29 @@ const UpdatePayment = ({ inputs, title }) => {
 
   const [paymentData, setPaymentData] = useState({})
   const navigate = useNavigate()
-
+  const [getpaymentData, setGetPaymentData] = useState({});
   const location = useLocation()
   console.log(location)
   const ids = location.pathname.split("/")[3]
   console.log(ids)
+
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/payment/find/${ids}`)
+      .then((res) => {
+        setGetPaymentData(res.data);
+        // alert(res.data.TextH)
+      })
+      .catch((err) => {
+        console.log(err.data);
+      });
+  }, [ids]);
+  
+  const mergedData = inputs.map((item) => ({
+    ...item,
+    value: getpaymentData[item.id] || "",
+  }));
 
 
   const updatePayment = async () => {
@@ -59,7 +77,7 @@ const UpdatePayment = ({ inputs, title }) => {
         <div className="bottom">
           <div className="right">
             <form onSubmit={handleSubmit}>
-              {inputs.map((input) => (
+              {mergedData.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input
@@ -67,6 +85,7 @@ const UpdatePayment = ({ inputs, title }) => {
                     type={input.type}
                     placeholder={input.placeholder}
                     id={input.id}
+                    defaultValue={input.value}
                   />
                 </div>
               ))}

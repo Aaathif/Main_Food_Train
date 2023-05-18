@@ -3,7 +3,7 @@ import "./UpdateEmployee.scss";
 import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useLocation, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,13 +13,32 @@ const UpdateEmployee = ({ inputs, title }) => {
 
   const [eventData, setEventData] = useState({})
   const navigate = useNavigate()
-
+   const [getEventData, setGetEventData] = useState({});
   const location = useLocation()
   console.log(location)
   const ids = location.pathname.split("/")[3]
   console.log(ids)
 //   const data = location.state.data
 //   console.log(data)
+
+  useEffect(() => {
+  axios
+    .get(`http://localhost:8000/api/addEmpo/find/${ids}`)
+    .then((res) => {
+      setGetEventData(res.data);
+      // alert(res.data.TextH)
+    })
+    .catch((err) => {
+      console.log(err.data);
+    });
+}, [ids]);
+
+const mergedData = inputs.map((item) => ({
+  ...item,
+  value: getEventData[item.id] || "",
+}));
+
+
 
   const updateEvent = async () => {
     // const { id } = eventData;
@@ -59,7 +78,7 @@ const UpdateEmployee = ({ inputs, title }) => {
         <div className="bottom">
           <div className="right">
             <form onSubmit={handleSubmit}>
-              {inputs.map((input) => (
+              {mergedData.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input
@@ -67,6 +86,7 @@ const UpdateEmployee = ({ inputs, title }) => {
                     type={input.type}
                     placeholder={input.placeholder}
                     id={input.id}
+                    defaultValue={input.value}
                   />
                 </div>
               ))}

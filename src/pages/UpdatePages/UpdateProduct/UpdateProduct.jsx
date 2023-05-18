@@ -3,7 +3,7 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import axios from "axios";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,7 @@ const UpdateProduct = ({ inputs, title }) => {
     const navigate = useNavigate();
 
     const [productData, setProductData] = useState({})
-
+    const [getproductData, setGetProductData] = useState({});
     const [size, setSize] = useState("");
 
     const [file, setFile] = useState("");
@@ -24,6 +24,25 @@ const UpdateProduct = ({ inputs, title }) => {
     console.log(location)
     const ids = location.pathname.split("/")[3]
     console.log(ids)
+
+
+    useEffect(() => {
+        axios
+          .get(`http://localhost:8000/api/product/find/${ids}`)
+          .then((res) => {
+            setGetProductData(res.data);
+            // alert(res.data.TextH)
+          })
+          .catch((err) => {
+            console.log(err.data);
+          });
+      }, [ids]);
+      
+      const mergedData = inputs.map((item) => ({
+        ...item,
+        value: getproductData[item.id] || "",
+      }));
+      
 
     
 
@@ -106,7 +125,7 @@ const UpdateProduct = ({ inputs, title }) => {
                                 />
                             </div>
                             {/* ----------------------------------------------------------------------- */}
-                            {inputs.map((input) => (
+                            {mergedData.map((input) => (
                                 <div className="formInput" key={input.id}>
                                     <label>{input.label}</label>
                                     <input
@@ -114,6 +133,7 @@ const UpdateProduct = ({ inputs, title }) => {
                                         type={input.type}
                                         placeholder={input.placeholder}
                                         id={input.id}
+                                        defaultValue={input.value}
                                     />
                                 </div>
                             ))}

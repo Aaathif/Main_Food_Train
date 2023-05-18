@@ -79,7 +79,20 @@ function Profile() {
                   <div style={{ color: 'GrayText' }}>
                     <h4 >Gender : <span>Male</span></h4>
                     <h4 >Date Of Birth : {data.dob}</h4>
-                    <h4 >Natianolity : Sri Lankan</h4>
+                    <h4 >Natianolity : 
+                      
+
+
+
+
+
+
+
+
+
+
+                      
+                    </h4>
 
                   </div>
                 </div>
