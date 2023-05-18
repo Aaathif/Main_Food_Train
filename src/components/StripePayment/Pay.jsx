@@ -1,85 +1,101 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout"
 import axios from 'axios';
+import { Link, useLocation } from "react-router-dom";
+import css from '../Orders/Orders.module.css'
 
-const KEY="pk_test_51Mwf3uKEYjNNAooHWb7CTIdxZ1loOGVE4csNTaJFZUd0wm7Sbze4jzTkKcMn4o7urxxRdkiM7cqc53y0LtKHs2od00OrXGXOC0"
-const Pay = () =>{
+const KEY = "pk_test_51Mwf3uKEYjNNAooHWb7CTIdxZ1loOGVE4csNTaJFZUd0wm7Sbze4jzTkKcMn4o7urxxRdkiM7cqc53y0LtKHs2od00OrXGXOC0"
+const Pay = () => {
 
-    const [stripeToke,serStripeToken] = useState(null)
+  const location = useLocation()
+  const price1 = location.state
 
-    const onToken =(token) =>{
-        serStripeToken(token);
-    };
+  const [stripeToke, serStripeToken] = useState(null)
 
-    useEffect(()=>{
-    const makeRequest= async () => {
+  const onToken = (token) => {
+    serStripeToken(token);
+  };
 
-        try{
-        const res = await axios.post("http://localhost:8000/api/checkout/stripe",{
-            tokenId:stripeToke.id,
-             amount:2000,
-             email: stripeToke.email, 
-             card: stripeToke.card,
-            
+  useEffect(() => {
+    const makeRequest = async () => {
+
+      try {
+        const res = await axios.post("http://localhost:8000/api/checkout/stripe", {
+          tokenId: stripeToke.id,
+          price: 2000,
+          email: stripeToke.email,
+          card: stripeToke.card,
+
 
 
         }
-        
+
         );
 
-console.log(res.data)
+        console.log(res.data)
 
-        }catch(err){
-            console.log(err);
-        }
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     if (stripeToke) {
-        makeRequest();
-      }
+      makeRequest();
+    }
 
-    },[stripeToke]);
+  }, [stripeToke]);
 
-return (
- 
- <div
- style={{
-height:"100vh",
-display: "flex",
-alignItems:"center",
-justifyContent: "center",
+  return (
+
+    <div
+      style={{
+        // height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
 
 
- }}
->
-<StripeCheckout name ="FOOD TRAIN"
-// billingAddress
-// shippingAddress
-description="Your total is 20"
-amount={2000}
-token={onToken}
-stripeKey={KEY}
->
-<button
-style={{
-  border: "none",
-  width : 120,
-  borderRadius : 5,
-  padding: "20px",
-  backgroundcolor:"black",
-  color:"black",
-  fontWeight:"600",
-  cursor:"pointer",
-}}
- 
+      }}
+    >
 
-  >pay Now
+      <div className={css.colum2}>
+        <div className={css.element}>
+          <div className={css.element1}>
+            <p className={css.text}>Pay Using Card</p>
 
-  </button>
-  </StripeCheckout>
-</div>
+            <div className={css.colum3}>
+              {/* 
+                  <p className={css.text1}>Order_Value</p>
+                  <br />
 
-);
+                  <p className={css.text2}>Shipping</p>
+                  <br /> */}
+              <p className={css.text3}>Total: Rs.{price1}</p>
+              <Link to="/afterPay">
+              <StripeCheckout name="FOOD TRAIN"
+                // billingAddress
+                // shippingAddress
+                description={price1}
+                amount={2000}
+                token={onToken}
+                stripeKey={KEY}
+              >
+               
+                <button
+                 className={css.btn2}
+                >pay Now
+                </button>  
+              </StripeCheckout></Link> 
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  );
 
 };
 

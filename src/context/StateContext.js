@@ -9,27 +9,32 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+  const [price, setPrice] = useState(1);
 
   let foundProduct;
   let index;
 
-  const onAdd = (product, quantity) => {
+  const onAdd = (product, quantity, price) => {
+    const Qty = parseInt(quantity)
+    const Price = parseInt(price)
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
     
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
-    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    setQty((prevQty) => prevQty + Qty);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + Price * Qty);
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + Qty);
+    
     
     if(checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
         if(cartProduct._id === product._id) return {
           ...cartProduct,
-          quantity: cartProduct.quantity + quantity
+          quantity: cartProduct.quantity + Qty
         }
       })
 
       setCartItems(updatedCartItems);
     } else {
-      product.quantity = quantity;
+      product.quantity = Qty;
       
       setCartItems([...cartItems, { ...product }]);
     }

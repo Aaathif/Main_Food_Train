@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     padding-top: 18px;
     max-width: 1360px;
-    margin: 0 auto;
+    margin: 2rem auto 6rem auto;
 }
 
 hr{
@@ -77,22 +77,25 @@ hr{
 
   .element1{
     background-color: #ffffff9c;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: center;
-    padding: 5%;
+    /* padding: 5%; */
     display: flex;
     flex-direction: column;
     height: 5px;
-    width: 150px;
+    width: 250px;
     margin-top: 10px;
   }
 
 .text{
-    text-align: center;
+    text-align: left;
     font-weight: bold;
-    margin: auto;
+    /* margin: auto; */
     height: '100vh';
     justify-content: center;
+    /* color: blue; */
+    font-weight: bold;
+    font-size: 30px;
     
 
 }
@@ -124,7 +127,8 @@ hr{
     font-weight: bold;
     margin: auto;
     justify-content: left;
-    padding-right: 115px;
+    color: red;
+    /* padding-right: 115px; */
 }
 
 .btn2{
@@ -139,3 +143,46 @@ hr{
     
     
 }
+
+
+.quantityDesc{
+    border: 1px solid gray;
+  padding: 6px;
+  }
+  .quantityDesc span{
+    font-size: 16px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  .quantityDesc .minus{
+    border-right: 1px solid gray;
+    color: #f02d34;
+  }
+  .quantityDesc .num{
+    border-right: 1px solid gray;
+    font-size: 20px;
+  }
+  .quantityDesc .plus{
+    color: rgb(49, 168, 49);
+  
+  }
+
+  .btnCartCancel{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 12px;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-top: 40px;
+    text-transform: uppercase;
+    background-color: #f02d34;
+    color: #fff;
+    cursor: pointer;
+      transform: scale(1, 1);
+    transition: transform 0.5s ease;
+  }
+  .btnCartCancel:hover{
+    transform: scale(1.1,1.1);
+  }

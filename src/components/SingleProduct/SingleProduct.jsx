@@ -2,21 +2,24 @@ import React, { useEffect, useState } from 'react'
 import css from './SingleProduct.module.css'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
-import { CartProvider, useCart } from "react-use-cart";
+import { useStateContext } from '../../context/StateContext';
+// import { CartProvider, useCart } from "react-use-cart";
+
 
 function SingleProduct() {
 
-    const { addItem } = useCart();
+    // const { addItem } = useCart();
+    const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
     const { id } = useParams()
 
 
-    const [qty, setQty] = useState(1)
+    const [qtys, setQty] = useState(1)
 
     const location = useLocation()
     const size = location.state.size
     const price = location.state.price
-    const priceQty = parseInt(price) * qty
+    const priceQty = parseInt(price) * qtys
     console.log(size + "hello")
 
 
@@ -55,9 +58,11 @@ function SingleProduct() {
                     <h4>Size: {size}</h4>
                     <h3 style={{ color: "gray" }}>Price: {price}</h3>
                     <h3>Totol Amount: {priceQty}</h3>
-                    <input type="number" name="" id="" min={1} value={qty} onChange={(e) => { setQty(e.target.value) }} />
-                    <Link to='/cart'>
-                        <button onClick={() => (addItem(data.title), alert("Item has been added your cart"))} >Add to cart</button></Link>
+                    <input type="number" name="" id="" min={1} value={qtys} onChange={(e) => { setQty(e.target.value) }} />
+                    {/* <Link to='/cart'> */}
+                        {/* <button onClick={() => (addItem(data.title), alert("Item has been added your cart"))} >Add to cart</button> */}
+                        <button onClick={() => onAdd(data, qtys, price)} >Add to cart</button>
+                    {/* </Link> */}
                     <h4>{data.description}</h4>
                     <span>{data.description}!. Get the best Results for Resume Writers Denver. Find what you are looking for! 99% Match on Resume Writers Denver. Find Here - Free, Private and Secure. The Best Resources. Always Facts. Unlimited Access. Results & Answers. Privacy Friendly. Grammarly Helps You Eliminate Errors And Find The Perfect Words To Express Yourself. Find and Add Sources Fast. Fix Punctuation Errors. AI Writing Assistant. Eliminate Grammar Errors. Improve Word Choice. Easily Improve Any Text. </span>
                 </div>

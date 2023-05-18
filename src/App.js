@@ -24,6 +24,9 @@ import { AuthContext } from './context/AuthContext';
 import StripePaymentPage from './screen/StripePaymentPage';
 import SingleEventMain from './components/SingleEvent/SingleEventMain';
 import SingleEventPage from './screen/SingleEventPage';
+import { StateContext } from './context/StateContext';
+import { Toaster } from 'react-hot-toast';
+import AfterPay from './components/AfterPay/AfterPay';
 
 
 function App() {
@@ -39,6 +42,8 @@ function App() {
   };
 
   return (
+    <StateContext>
+      <Toaster />
     <Router>
       <div className="App">
         <Routes>
@@ -62,9 +67,11 @@ function App() {
             <Route path="/orders" element={<Orders />}/>
             <Route path="/stripe" element={<StripePaymentPage />}/>
             <Route path="/singleEvent/:id" element={<SingleEventPage />}/>
+            <Route path="/afterPay" element={<AfterPay />}/>
         </Routes>
       </div>
     </Router>
+  </StateContext>
   );
 }
 
