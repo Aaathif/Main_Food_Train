@@ -163,6 +163,11 @@ export const PaymentColumns = [
     width: 70,
   },
   {
+    field: "email",
+    headerName: "email",
+    width: 150,
+  },
+  {
     field: "cardNo",
     headerName: "Card Number",
     width: 250,
