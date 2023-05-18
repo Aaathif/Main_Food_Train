@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Navbar.css'
 import { Link } from "react-router-dom";
+import {UilShoppingBag} from '@iconscout/react-unicons'
 // import icon from '..//../images/Food train logo.png'
 
   function Navbar() {
@@ -42,6 +43,11 @@ import { Link } from "react-router-dom";
             <li className="nav_item"><Link to="/contactUs" className="nav_link">Contact Us</Link></li>
             <li className="nav_item"><Link to="/aboutUs" className="nav_link">About Us</Link></li>
             <li className="nav_item"><Link to='/profile' className="nav_link">Profile</Link></li>
+            <li className="nav_item cart">
+              <Link to='/cart' className="nav_link">
+              <UilShoppingBag size={35} color="#2E2E2E"/></Link>
+              <div className='badge'>1</div>
+              </li>
             <li className="nav_item"><Link to="/login" className="nav_link">Log out</Link></li>
         </ul>
         <div onClick={navToggle} className={ToggleIcon}>   {/**/}
