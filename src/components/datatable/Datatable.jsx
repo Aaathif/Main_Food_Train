@@ -2,15 +2,20 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 // import userInputs from '../../formSource'
+import { useReactToPrint } from 'react-to-print'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Datatable = ({columns}) => {
+
+  const componentPDF = useRef()
+
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState();  //this is need when we need to delete
@@ -31,6 +36,12 @@ const Datatable = ({columns}) => {
       toast.error('Deleting failed');
     }
   };
+
+  const generatePDF = useReactToPrint({
+    content: ()=>componentPDF.current,
+    documentTitle: "Summary Data",
+    // onAfterPrint: ()=>alert("Data saved in PDF")
+  })
 
   const actionColumn = [
     {
@@ -93,7 +104,7 @@ const Datatable = ({columns}) => {
     },
   ];
   return (
-    <div className="datatable">
+    <div className="datatable" ref={componentPDF}>
       <ToastContainer />
       <div className="datatableTitle">
         {path}
@@ -101,6 +112,8 @@ const Datatable = ({columns}) => {
           Add New
         </Link>
       </div>
+
+      <button className="pdf" onClick={generatePDF}>PDF</button>
       <DataGrid
         className="datagrid"
         rows={list}

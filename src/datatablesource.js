@@ -105,12 +105,12 @@ export const inventoryColumns = [
     headerName: "Category",
     width: 150,
   },
-  {
-    field: "prices",
-    headerName: "Price",
-    width: 450,
-  },
   // {
+  //   field: "prices",
+  //   headerName: "Price",
+  //   width: 450,
+  // },
+  // // {
   //   field: "quantity",
   //   headerName: "Quantity",
   //   width: 100,
@@ -155,7 +155,7 @@ export const MenuListColumns = [
 
 {/*------------------------ PaymentColumns --------------------------*/}
 
-const card = card.exp_year
+// const card = card.exp_year
 export const PaymentColumns = [
   
   {
@@ -189,7 +189,7 @@ export const PaymentColumns = [
   //   width: 100,
   // },
   {
-    field: 'card.e',
+    field: 'card',
     headerName: "CVV",
     width: 200,
   }
