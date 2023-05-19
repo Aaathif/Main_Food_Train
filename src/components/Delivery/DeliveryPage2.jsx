@@ -34,10 +34,10 @@ function DeliveryPage2(props) {
         <p>Delivery Charge : {deliveryCharge}100</p>
         <p>Total Cost: {totalCost}2100</p>
         </div>
-        <button onClick={handleSubmit} type="submit" className={styles.button0} style={{width:`200px`}}>Confirm</button>
-        <Link to='/deliveryEdit'>
+        <button onClick={handleSubmit} type="submit" className={styles.button0} style={{width:`500px`}}>Confirm</button>
+        {/* <Link to='/deliveryEdit'>
         <button type="submit" className={styles.button10} style={{width:`200px`}}>Edit</button>
-        </Link>
+        </Link> */}
         </form>  
         </div>
       );
