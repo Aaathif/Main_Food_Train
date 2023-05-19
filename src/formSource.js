@@ -22,6 +22,8 @@ export const userInputs = [
     id: "password",
     label: "Password",
     type: "password",
+   
+
   },
   {
     id: "country",
@@ -291,7 +293,8 @@ export const blogInput = [
     label: "Description",
     type: "text",
     placeholder: "Enter description",
-    required: true,
+    required: false,
+    
   },
 ]
 
@@ -312,8 +315,8 @@ export const eventInput = [
   },
   {
     id: "date",
-    label: "text",
-    type: "text",
+    label: "Date",
+    type: "date",
     placeholder: "Enter Date",
   },
   {

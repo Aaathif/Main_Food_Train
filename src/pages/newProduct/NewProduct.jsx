@@ -145,6 +145,7 @@ const New = ({ inputs, title }) => {
 
               {prices.map((price, index) => (
                 <div key={index}>
+                  <label htmlFor="size">Price (Size and Price)</label>
                   <input
                     type="text"
                     name="size"
