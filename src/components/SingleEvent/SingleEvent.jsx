@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useRef } from 'react';
 import css from './SingleEvent.module.css'
 import { useLocation } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch'
+import { useStateContext } from '../../context/StateContext';
 
 function EventDesc({ Data }) {
+
+  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
   const location = useLocation()
   console.log(location)
@@ -34,10 +37,10 @@ function EventDesc({ Data }) {
 
             <span style={{ color: ` #7D7979`, fontSize: `20px`, fontFamily: `Lucida Console` }}>Total Price</span>
           </p>
-          <button>1</button>
-          <button>Add to Cart</button>
+          {/* <button>1</button> */}
+          <button onClick={() => onAdd(data, Data.price, Data.qty )}>Add to Cart</button>
           <div className={css.buybutton}>
-            <button>Buy Now</button>
+            {/* <button>Buy Now</button>   */}
           </div>
         </div>
       </div>

@@ -3,12 +3,10 @@ import css from './SingleProduct.module.css'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 import { useStateContext } from '../../context/StateContext';
-// import { CartProvider, useCart } from "react-use-cart";
 
 
 function SingleProduct() {
 
-    // const { addItem } = useCart();
     const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
     const { id } = useParams()
@@ -58,7 +56,7 @@ function SingleProduct() {
                     <h4>Size: {size}</h4>
                     <h3 style={{ color: "gray" }}>Price: {price}</h3>
                     <h3>Totol Amount: {priceQty}</h3>
-                    <input type="number" name="" id="" min={1} value={qtys} onChange={(e) => { setQty(e.target.value) }} />
+                    {/* <input type="number" name="" id="" min={1} value={qtys} onChange={(e) => { setQty(e.target.value) }} /> */}
                     {/* <Link to='/cart'> */}
                         {/* <button onClick={() => (addItem(data.title), alert("Item has been added your cart"))} >Add to cart</button> */}
                         <button onClick={() => onAdd(data, qtys, price)} >Add to cart</button>

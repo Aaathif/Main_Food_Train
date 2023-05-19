@@ -11,13 +11,8 @@ import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 
 
 function Orderdes({ Orderdata }) {
 
-  // const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem } = useCart();
-  // console.log(items+"sathurjan");
-
   const cartRef = useRef();
   const { totalPrice, totalQuantities, qty, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
-
-  // if (isEmpty) return <p>Your cart is empty</p>;
 
   return (
     <div className={css.container}>
@@ -78,9 +73,7 @@ function Orderdes({ Orderdata }) {
 
         <div className={css.row} ref={cartRef}>
           <div className={css.colum}>
-            {/* <img src={Orderdata.closebtn} style={{ height: '10px', width: '10px' }} alt="cxsvcxs"  /> */}
             <DeleteIcon onClick={() => onRemove(Orderdata)} style={{ color: "red", fontSize: "30px" }} />
-
           </div>
 
           <div className={css.colum}>

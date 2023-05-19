@@ -22,7 +22,7 @@ const Pay = () => {
       try {
         const res = await axios.post("http://localhost:8000/api/checkout/stripe", {
           tokenId: stripeToke.id,
-          price: 2000,
+          price: price1,
           email: stripeToke.email,
           card: stripeToke.card,
 
@@ -76,7 +76,7 @@ const Pay = () => {
                 // billingAddress
                 // shippingAddress
                 description={price1}
-                amount={2000}
+                amount={price1}
                 token={onToken}
                 stripeKey={KEY}
               >

@@ -25,6 +25,7 @@ import StripePaymentPage from './screen/StripePaymentPage';
 import SingleEventMain from './components/SingleEvent/SingleEventMain';
 import SingleEventPage from './screen/SingleEventPage';
 import { StateContext } from './context/StateContext';
+import { StateContext2 } from './context/StateContext2';
 import { Toaster } from 'react-hot-toast';
 import AfterPay from './components/AfterPay/AfterPay';
 
@@ -42,6 +43,7 @@ function App() {
   };
 
   return (
+    <StateContext2 >
     <StateContext>
       <Toaster />
     <Router>
@@ -72,6 +74,7 @@ function App() {
       </div>
     </Router>
   </StateContext>
+  </StateContext2>
   );
 }
 

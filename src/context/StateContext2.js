@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 
 const Context = createContext();
 
-export const StateContext = ({ children }) => {
+export const StateContext2 = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -39,7 +39,7 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, { ...product }]);
     }
 
-    toast.success(`${qty} ${product.title} added to the cart.`);
+    toast.success(`${qty} ${product.name} added to the cart.`);
   } 
 
   const onRemove = (product) => {
