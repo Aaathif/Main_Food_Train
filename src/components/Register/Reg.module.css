@@ -3,34 +3,37 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 1360px;
+  /* max-width: 1360px; */
+  max-height: 100px;
 }
 
 .col2{
   flex-basis: 50%;
 }
+
 .bgr{
     position: relative;
     height: 100vh;
     width: 100%;
-    background-size: cover;
+    /* background-size: cover;  */
+    background-repeat: no-repeat;
     background-position:center ;
-    /* filter: blur(5px);
-    -webkit-filter: blur(5px); */
-   
+    /* filter: blur(5px); */
+  /* -webkit-filter: blur(5px); */
+
   }
   
   .container{
     color: #C52726;
     /* justify-content: center; */
     margin: auto;
-    /* height: 420px; */
-    width: 400px;
+    width: 500px;
+    padding-bottom: 8rem;
     /* top: 20%;
     left :30%; */
     /* position: absolute; */
-    border-radius: 0.5rem 0.5rem 1.5rem 1.5em;
-    background: linear-gradient(135deg, rgba(246, 163, 30, 0.2), rgba(255, 255, 255, 0.3));
+    border-radius: 0.5rem 0.5rem 1.0rem 1.0em;
+    /* background: linear-gradient(135deg, rgba(246, 163, 30, 0.2), rgba(255, 255, 255, 0.3)); */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     text-align: center;
@@ -38,15 +41,17 @@
     box-shadow: 0px 4px 0px 0px #67108F ;
    
   }
+
+  .col2 .container>h1 {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
  
   .form{
-    margin-top: 4rem;
     display: flex;
     flex-direction: column ;
     justify-content: center;
     align-items: center;
-    
-   
   }
   .inp{
     width: 300px;
@@ -58,9 +63,9 @@
     border: none;
     outline: none;
   }
-  /* .inp:focus{
-    outline-color: rgb(125, 137, 148);
-  } */
+  .inp:focus{
+    /* outline-color: rgb(125, 137, 148); */
+  }
   button.btn{
     margin-top: 10px;
     margin-bottom: 10px ;
@@ -80,8 +85,8 @@
   /* a{
    text-decoration: none;
    color: rgb(0, 236, 253);
-  }
-  a:hover{
+  } */
+  /* a:hover{
     text-decoration: underline;
     color: blueviolet;
   } */
@@ -102,5 +107,6 @@
     .container{
       top: 20%;
       left :10%;
-      width: 310px;  }
+      width: 310px;  
+    }
   }

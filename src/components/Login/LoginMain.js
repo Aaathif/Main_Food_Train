@@ -1,6 +1,6 @@
 import React from 'react'
 import data from './LoginData'
-import Login2 from './Login2'
+import Login2 from './Login'
 function LoginMain() {
   return (
     <div>

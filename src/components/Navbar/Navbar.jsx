@@ -45,7 +45,7 @@ import { useStateContext } from '../../context/StateContext';
             <li className="nav_item"><Link to="/event" className="nav_link">Event</Link></li>
             <li className="nav_item"><Link to="/contactUs" className="nav_link">Contact Us</Link></li>
             <li className="nav_item"><Link to="/aboutUs" className="nav_link">About Us</Link></li>
-            <li className="nav_item"><Link to='/profile' className="nav_link">Profile</Link></li>
+            {/* <li className="nav_item"><Link to='/profile' className="nav_link">Profile</Link></li> */}
             <li className="nav_item cart" onClick={() => setShowCart(true)}>
             
               <Link to='/cart' className="nav_link" >

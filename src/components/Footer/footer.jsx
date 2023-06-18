@@ -30,10 +30,10 @@ const Footer=()=>{
                     </div>
                     <div className="sb__footer-links-div">
                     <h4>Resources</h4>
-                        <a href="/resource">
+                        <a href="/product">
                             <p>Inventory</p>
                         </a>
-                        <a href="/feedback">
+                        <a href="/contactUs">
                             <p>Feedback</p>
                         </a>
                         <a href="/event">
@@ -43,10 +43,10 @@ const Footer=()=>{
                     
                     <div className="sb__footer-links-div">
                     <h4>Company</h4>
-                        <a href="/about">
+                        <a href="/aboutUs">
                             <p>About</p>
                         </a>
-                        <a href="/career">
+                        <a href="/contactUs">
                             <p>Career</p>
                         </a>
                         <a href="/contact">

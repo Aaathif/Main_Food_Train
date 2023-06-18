@@ -49,7 +49,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-            <Route path='/' element={<ProtectedRoute><HomePage/></ProtectedRoute>}/>
+            <Route path='/' element={<HomePage/>}/>
             <Route path='/product' element={<ProductPage/>}/>
             <Route path='/blog' element={<BlogPage/>}/>
             <Route path='/singleBlog/:id' element={<SingleBlogPage/>}/>

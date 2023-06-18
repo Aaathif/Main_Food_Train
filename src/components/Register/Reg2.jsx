@@ -54,7 +54,7 @@ function Signup({ Data }) {
          <div className={Css.container}>
            <h1>Lets Make Your Order</h1>
       <form className={Css.form} method='post' onSubmit={handleSubmit}>
-          <input 
+          {/* <input 
             type="text" name= "firstName" className={Css.inp} onChange={handleChange} value={formData.firstName}
             placeholder='Enter First Name'
           />
@@ -63,13 +63,13 @@ function Signup({ Data }) {
             type="text" name= "lastName" className={Css.inp} value={formData.lastName} onChange={handleChange}
             placeholder='Enter Last Name'
           />
-        <br />
+        <br /> */}
           <input 
             type="text"  name= "username" className={Css.inp} value={formData.username} onChange={handleChange}
             placeholder='Enter Username'
           />
         <br />
-          <input 
+          {/* <input 
             type="text"  name= "address" className={Css.inp} value={formData.address} onChange={handleChange}
             placeholder='Enter address'
           />
@@ -82,9 +82,8 @@ function Signup({ Data }) {
           <input 
             type="date"  name= "dateOfBirth" className={Css.inp} value={formData.dateOfBirth} onChange={handleChange}
             placeholder='Enter Date-of-Birth'
-            
           />
-        <br />
+        <br /> */}
           <input type="email"  name= "email" className={Css.inp} value={formData.email} onChange={handleChange}
           placeholder='Enter Email'
           />

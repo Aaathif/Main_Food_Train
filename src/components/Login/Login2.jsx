@@ -23,6 +23,7 @@ function Login2({ Data }) {
       const response = await axios.post('http://localhost:8000/api/customers/login', formState);
       console.log(response.data);
       navigate("/");
+      
         
     } catch (error) {
       console.error(error);

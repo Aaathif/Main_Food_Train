@@ -1,5 +1,5 @@
 const data =[{
-    img : "https://thumbs.dreamstime.com/b/assorted-indian-food-different-bowls-dark-wooden-background-top-view-dishes-appetizers-cuisine-chicken-curry-rice-129630877.jpg"
+    img : "https://static.toiimg.com/thumb/75356205.cms?imgsize=1503855&width=800&height=800"
 },
 ]
 export default data
